@@ -3,13 +3,12 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const comment = require('./models/comments');
 const app = express();
-require("dotenv").config();
 
 // ********* VIEW ENGINE SET UP ********* //
 app.set('view engine','ejs');
 
 // ********* CONNECTING TO MANGODB ********* //
-const URI = process.env.DATABASE_URL;
+const URI = "mongodb+srv://Tianyi:990610@cluster0.cfufopm.mongodb.net/?retryWrites=true&w=majority"
 
 const config = {
     useNewUrlParser: true,
@@ -17,7 +16,7 @@ const config = {
 }
 
 mongoose.connect(URI, config)
-.then((result) => app.listen(process.env.PORT))
+.then((result) => app.listen(3000))
 .catch((err) => console.log(err));
 
 // ********* MIDDLEWARE CONNECTION ********** //
